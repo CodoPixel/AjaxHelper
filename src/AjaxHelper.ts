@@ -19,7 +19,7 @@ class AjaxHelper {
 	}
 
 	public open(method: "GET" | "POST", path: string, async: boolean = true): void {
-		this.xhr.open(method === "GET" ? "GET" : "POST", path, async);
+		this.xhr.open(method.toUpperCase() === "POST" ? "POST" : "GET", path, async);
 		this.xhr.overrideMimeType(this.mimeType);
 		for (var header of this.headers) this.xhr.setRequestHeader(header[0], header[1]);
 
